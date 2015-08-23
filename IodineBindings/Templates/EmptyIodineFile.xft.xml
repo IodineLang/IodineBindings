@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Template Language="Iodine">
+	<TemplateConfiguration>
+		<_Name>Empty Iodine File</_Name>
+		<_Categry>General</_Categry>
+		<LanguageName>Iodine</LanguageName>
+	</TemplateConfiguration>
+	<TemplateFiles>
+		<File DefaultExtension=".id" DefaultName="EmptyIodineFile">
+		<![CDATA[# Created on ${Date} at {$Time}]]>
+		</File>
+	</TemplateFiles>
+</Template>

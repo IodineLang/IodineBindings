@@ -1,0 +1,39 @@
+﻿<?xml version="1.0"?>
+<Template>
+	
+	<!-- Template Header -->
+	<TemplateConfiguration>
+		<_Name>Empty Iodine Project</_Name>
+		<_Category>Iodine</_Category>
+		<Icon>md-project</Icon>
+		<LanguageName>Iodine</LanguageName>
+		<_Description>Empty Iodine Project</_Description>
+		<DefaultFilename>EmptyIodineProject</DefaultFilename>
+	</TemplateConfiguration>
+	
+	<!-- Actions -->
+	<Actions>
+		<Open filename = "program.id"/>
+	</Actions>
+	
+	<!-- Template Content -->
+	<Combine name = "${ProjectName}" directory = ".">
+		<Options>
+			<StartupProject>${ProjectName}</StartupProject>
+		</Options>
+		
+		<Project name = "${ProjectName}" directory = "." type = "Iodine">
+			<Options
+				PauseConsoleOutput = "True"
+				MainFile = "program.id"/>
+			<Files>
+				<File name="program.id">
+func main (args) {
+	print ("Hello, World!");
+	input ();
+}
+				</File>
+			</Files>
+		</Project>
+	</Combine>
+</Template>

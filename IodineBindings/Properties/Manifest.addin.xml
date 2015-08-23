@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Addin>
+	<Runtime>
+		<Import assembly = "IodineBinding.dll" />
+		<!-- <Import assembly = "ICSharpCode.NRefactory.dll"/> -->
+	</Runtime>
+
+	<Dependencies>
+		<Addin id = "::MonoDevelop.Ide" version = "5.9.5" />
+		<Addin id = "::MonoDevelop.Core" version = "5.9.5" />
+		<Addin id = "::MonoDevelop.SourceEditor2" version = "4.50" />
+		<Addin id = "::MonoDevelop.Refactoring" version="4.5"/>
+		<!-- <Addin id = "::Mono.TextEditor" version = "1.0" /> -->
+	</Dependencies>
+
+	<Extension path="/MonoDevelop/Ide/ProjectTemplates">
+		<ProjectTemplate id="EmptyIodineProject" resource="EmptyIodineProject.xpt.xml" />
+	</Extension>
+
+	<Extension path = "/MonoDevelop/Ide/FileFilters">
+		<FileFilter id = "Iodine Files" _label = "Iodine Files" extensions = "*.id"/>
+	</Extension>
+
+	<Extension path = "/MonoDevelop/ProjectModel/LanguageBindings">
+		<LanguageBinding id = "Iodine" supportedextensions = ".id" class = "IodineBinding.IodineLanguageBinding"/>
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/FileTemplates">
+		<FileTemplate id = "EmptyIodineFile" resource = "EmptyIodineFile.xft.xml" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/ProjectBindings">
+		<ProjectBinding id = "IodineProject" class = "IodineBinding.IodineProjectBinding" />
+	</Extension>
+
+	<Extension path = "/MonoDevelop/ProjectModel/SerializableClasses">
+		<DataType class = "IodineBinding.IodineProject" />
+		<DataType class = "IodineBinding.IodineConfiguration" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/MSBuildItemTypes">
+		<DotNetProject  language="Iodine" extension="idproj" guid="{09524667-aa3e-4361-8af6-33e2bc7f73d6}"/>
+	</Extension>
+
+
+	<!--- Syntax related -->
+	<Extension path = "/MonoDevelop/Core/MimeTypes">
+		<MimeType id="text/x-iodine" _description="Iodine files" isText="true">
+			<File pattern="*.id" />
+		</MimeType>
+	</Extension>
+
+	<Extension path = "/MonoDevelop/SourceEditor2/CustomModes">
+    	<SyntaxMode mimeTypes="text/x-iodine" class="IodineBinding.IodineSyntaxMode"/>
+  	</Extension>
+
+	<Extension path = "/MonoDevelop/SourceEditor2/SyntaxModes">
+		<Templates resource="IodineSyntaxMode.xml" />
+	</Extension>
+</Addin>
