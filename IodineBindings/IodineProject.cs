@@ -62,8 +62,8 @@ namespace IodineBinding
 			AggregatedOperationMonitor aggregatedMonitor = new AggregatedOperationMonitor (monitor);
 			try {
 				string param = string.Format ("\"{0}\" {1}", config.MainFile, config.CommandLineParameters);
-
-				IProcessAsyncOperation op = Runtime.ProcessService.StartConsoleProcess ("iodine.exe",
+			
+				IProcessAsyncOperation op = Runtime.ProcessService.StartConsoleProcess ("iodine",
 						param, BaseDirectory,
 						config.EnvironmentVariables, console, null);
 
@@ -74,6 +74,7 @@ namespace IodineBinding
 				aggregatedMonitor.AddOperation (op);
 				op.WaitForCompleted ();
 				monitor.Log.WriteLine ("Iodine exited with code: " + op.ExitCode);
+			
 			} catch (Exception e) {
 				monitor.ReportError (GettextCatalog.GetString ("Cannot execute \"{0}\"", config.MainFile), e);
 			} finally {
